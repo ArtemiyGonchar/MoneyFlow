@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MoneyFlow.Domain.Entities.ValueObjects
 {
-    //[Owned]
+    /// <summary>
+    /// Money is the Value Object for Transaction class, every Transaction has some amount of money that Money validates.
+    /// </summary>
     public class Money
     {
         public decimal Amount { get; private set; }
