@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MoneyFlow.Domain.Interfaces.Repositories;
 using MoneyFlow.Infrastructure.Context;
+using MoneyFlow.Infrastructure.Initializer;
 using MoneyFlow.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,8 @@ namespace MoneyFlow.Infrastructure.DI
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
-            services.AddScoped<IUserProfileRepository, IUserProfileRepository>();
+            services.AddScoped<IUserProfileRepository, UserRepository>();
+            services.AddScoped<DbInitializer>();
         }
     }
 }
