@@ -27,5 +27,18 @@ namespace MoneyFlow.Api.Controllers
             var userProfileId = await _mediator.Send(command);
             return Ok(userProfileId);
         }
+
+        [HttpPatch("rename-user-profile")]
+        public async Task<IActionResult> RenameUserProfile([FromBody] RenameUserProfileDTO dto)
+        {
+            var command = new RenameUserProfileCommand
+            {
+                UserName = dto.Username,
+                Id = dto.Id
+            };
+
+            var userProfileId = await _mediator.Send(command);
+            return Ok(userProfileId);
+        }
     }
 }
